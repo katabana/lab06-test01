@@ -9,7 +9,9 @@ def calculate(year, month, day):
     :param month:
     :param day:
     :return:
+    using Disparate Gauss's algorithm variation
     """
+    day_of_the_week = day + (2.6 * ((m-3) % 12 + 1) - 0.2) // 1)
     return year + month + day
 
 
