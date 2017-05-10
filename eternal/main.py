@@ -11,8 +11,13 @@ def calculate(year, month, day):
     :return:
     using Disparate Gauss's algorithm variation
     """
-    day_of_the_week = day + (2.6 * ((month-3) % 12 + 1) - 0.2) // 1
-    return year + month + day
+    y = year % 100
+    c = year // 100
+    m = (month - 3) % 12 + 1
+    day_of_the_week = int((day + (2.6 * m - 0.2) // 1 + y + (y / 4) // 1 + (c / 4) // 1 - 2 * c) % 7) - 1
+    if day_of_the_week < 0:
+        day_of_the_week = day_of_the_week + 7
+    return day_of_the_week
 
 
 def main(args):
